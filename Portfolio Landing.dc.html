@@ -155,9 +155,9 @@
     <div style="max-width: 1120px; margin: 0 auto; padding: 64px 22px 56px;">
       <h2 class="reveal" style="font-family: Archivo, sans-serif; font-weight: 700; font-size: clamp(32px, 8vw, 56px); line-height: 1.03; letter-spacing: -0.035em; margin: 0; max-width: 18ch;">Contame qué necesitás.</h2>
       <p class="reveal" style="font-size: clamp(17px, 4.2vw, 19px); line-height: 1.55; color: rgba(244,243,236,0.72); margin: 18px 0 0; max-width: 40ch; transition-delay: 0.08s;">Respondo el mismo día. Un mensaje corto con tu negocio y qué te gustaría es suficiente para arrancar.</p>
-      <a href="{{ waLink }}" target="_blank" rel="noopener" class="reveal" style="margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 12px; background: #8A9A4B; color: #1A1A1A; padding: 22px 26px; border-radius: 16px; font-family: Archivo, sans-serif; font-weight: 700; font-size: clamp(18px, 4.6vw, 22px); letter-spacing: -0.02em; min-height: 68px; max-width: 520px; transition-delay: 0.16s;" style-hover="background: #9BAB5C; color: #1A1A1A;">Escribime por WhatsApp</a>
+      <a href="{{ mailLink }}" class="reveal" style="margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 12px; background: #8A9A4B; color: #1A1A1A; padding: 22px 26px; border-radius: 16px; font-family: Archivo, sans-serif; font-weight: 700; font-size: clamp(18px, 4.6vw, 22px); letter-spacing: -0.02em; min-height: 68px; max-width: 520px; transition-delay: 0.16s;" style-hover="background: #9BAB5C; color: #1A1A1A;">Contactame</a>
       <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 26px; font-size: 17px;">
-        <a href="{{ mailLink }}" style="color: #F4F3EC; border-bottom: 1px solid rgba(244,243,236,0.3); padding-bottom: 2px;" style-hover="color: #8A9A4B; border-color: #8A9A4B;">{{ email }}</a>
+        <a href="{{ waLink }}" target="_blank" rel="noopener" style="color: #F4F3EC; border-bottom: 1px solid rgba(244,243,236,0.3); padding-bottom: 2px;" style-hover="color: #8A9A4B; border-color: #8A9A4B;">{{ waDisplay }}</a>
       </div>
       <div style="margin-top: 52px; padding-top: 20px; border-top: 1px solid rgba(244,243,236,0.15); display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; font-size: 14px; color: rgba(244,243,236,0.45);">
         <span>© 2026 {{ nombre }}</span>
@@ -283,8 +283,9 @@ class Component extends DCLogic {
     const toggleAnalytics = () => this.setState((s) => ({ analyticsPref: !s.analyticsPref }));
     const savePrefs = () => saveConsent(S.analyticsPref);
     const stopProp = (e) => { if (e && e.stopPropagation) e.stopPropagation(); };
+    const waDisplay = "+" + tel.slice(0, 2) + " " + tel.slice(2, 3) + " " + tel.slice(3, 6) + " " + tel.slice(6, 9) + " " + tel.slice(9);
     return {
-      nombre, email,
+      nombre, email, waDisplay,
       waLink: "https://wa.me/" + tel + "?text=" + encodeURIComponent("Hola! Vi tu portfolio y quería consultarte por un proyecto."),
       mailLink: "mailto:" + email,
       showBanner: S.consent === null && S.modal === null,
