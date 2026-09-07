@@ -68,7 +68,7 @@
     </div>
     <div class="stats-grid" style="margin-top: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: rgba(26,26,26,0.12); border: 1px solid rgba(26,26,26,0.12); border-radius: 16px; overflow: hidden;">
       <div style="background: #F4F3EC; padding: 18px 20px;">
-        <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.02em;">6</div>
+        <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.02em;">7</div>
         <div style="font-size: 14px; color: rgba(26,26,26,0.6); margin-top: 3px;">proyectos entregados</div>
       </div>
       <div style="background: #F4F3EC; padding: 18px 20px;">
@@ -155,7 +155,7 @@
     <div style="max-width: 1120px; margin: 0 auto; padding: 64px 22px 56px;">
       <h2 class="reveal" style="font-family: Archivo, sans-serif; font-weight: 700; font-size: clamp(32px, 8vw, 56px); line-height: 1.03; letter-spacing: -0.035em; margin: 0; max-width: 18ch;">Contame qué necesitás.</h2>
       <p class="reveal" style="font-size: clamp(17px, 4.2vw, 19px); line-height: 1.55; color: rgba(244,243,236,0.72); margin: 18px 0 0; max-width: 40ch; transition-delay: 0.08s;">Respondo el mismo día. Un mensaje corto con tu negocio y qué te gustaría es suficiente para arrancar.</p>
-      <a href="{{ mailLink }}" class="reveal" style="margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 12px; background: #8A9A4B; color: #1A1A1A; padding: 22px 26px; border-radius: 16px; font-family: Archivo, sans-serif; font-weight: 700; font-size: clamp(18px, 4.6vw, 22px); letter-spacing: -0.02em; min-height: 68px; max-width: 520px; transition-delay: 0.16s;" style-hover="background: #9BAB5C; color: #1A1A1A;">Contactame</a>
+      <a href="{{ mailLink }}" target="_blank" rel="noopener" class="reveal" style="margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 12px; background: #8A9A4B; color: #1A1A1A; padding: 22px 26px; border-radius: 16px; font-family: Archivo, sans-serif; font-weight: 700; font-size: clamp(18px, 4.6vw, 22px); letter-spacing: -0.02em; min-height: 68px; max-width: 520px; transition-delay: 0.16s;" style-hover="background: #9BAB5C; color: #1A1A1A;">Contactame</a>
       <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 26px; font-size: 17px;">
         <a href="{{ waLink }}" target="_blank" rel="noopener" style="color: #F4F3EC; border-bottom: 1px solid rgba(244,243,236,0.3); padding-bottom: 2px;" style-hover="color: #8A9A4B; border-color: #8A9A4B;">{{ waDisplay }}</a>
       </div>
@@ -287,7 +287,7 @@ class Component extends DCLogic {
     return {
       nombre, email, waDisplay,
       waLink: "https://wa.me/" + tel + "?text=" + encodeURIComponent("Hola! Vi tu portfolio y quería consultarte por un proyecto."),
-      mailLink: "mailto:" + email,
+      mailLink: "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(email) + "&su=" + encodeURIComponent("Consulta desde el portfolio"),
       showBanner: S.consent === null && S.modal === null,
       modalOpen: S.modal !== null,
       showTerminos: S.modal === "terminos",
@@ -301,7 +301,8 @@ class Component extends DCLogic {
         { cliente: "LBestudio", rubro: "Barbería", resultado: "Rediseño completo: turnero con horarios en tiempo real, precios y seña del 50% claros por servicio, y ubicación con horarios de atención.", link: "https://lbestudio.vercel.app", shot: "images/laestudio.jpg" },
         { cliente: "Illios", rubro: "Indumentaria", resultado: "Catálogo online de botas importadas con envíos a todo el país y asesoramiento por WhatsApp.", link: "https://illios.vercel.app", shot: "images/illios.jpg" },
         { cliente: "Onze", rubro: "App a medida", resultado: "Plataforma que conecta jugadores y equipos de fútbol según posición, zona y modalidad de juego.", link: "https://onzefutbol.github.io", shot: "images/onze.jpg" },
-        { cliente: "Mate", rubro: "App a medida", resultado: "Hub académico con materias, cronograma, apuntes, flashcards y tutor con IA para estudiantes.", link: "https://matestudio.vercel.app", shot: "images/mate.jpg" }
+        { cliente: "Mate", rubro: "App a medida", resultado: "Hub académico con materias, cronograma, apuntes, flashcards y tutor con IA para estudiantes.", link: "https://matestudio.vercel.app", shot: "images/mate.jpg" },
+        { cliente: "AFA", rubro: "App a medida", resultado: "Página para mostrar y organizar turnos de fútbol sintético y pádel.", link: "https://afapadel.vercel.app", shot: "images/afa.png" }
       ],
       servicios: [
         { titulo: "Páginas web", detalle: "Landings claras y rápidas, pensadas para que te contacten desde el celular." },
