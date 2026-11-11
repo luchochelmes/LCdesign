@@ -52,8 +52,8 @@
     .reveal-grid > .reveal:nth-child(4) { transition-delay: 0.24s; }
     .reveal-grid > .reveal:nth-child(5) { transition-delay: 0.32s; }
     .reveal-grid > .reveal:nth-child(6) { transition-delay: 0.4s; }
-    .testi-track-left { animation: testi-left 42s linear infinite; }
-    .testi-track-right { animation: testi-right 36s linear infinite; }
+    .testi-track-left { animation: testi-left 22s linear infinite; }
+    .testi-track-right { animation: testi-right 19s linear infinite; }
     .testi-row:hover .testi-track { animation-play-state: paused; }
     @keyframes testi-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     @keyframes testi-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
@@ -163,6 +163,7 @@
     <div style="max-width: 1120px; margin: 0 auto; padding: 60px 22px 0;">
       <div class="reveal" style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(26,26,26,0.5);">Opiniones</div>
       <h2 class="reveal" style="font-family: Archivo, sans-serif; font-weight: 700; font-size: clamp(30px, 7vw, 48px); line-height: 1.05; letter-spacing: -0.03em; margin: 14px 0 0; max-width: 20ch; transition-delay: 0.08s;">Lo que dicen mis clientes.</h2>
+      <a href="{{ reviewWaLink }}" target="_blank" rel="noopener" class="reveal" style="margin-top: 22px; display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(26,26,26,0.2); padding: 13px 20px; border-radius: 999px; font-family: Archivo, sans-serif; font-weight: 600; font-size: 15px; transition-delay: 0.14s;" style-hover="border-color: #1E4230; background: rgba(26,26,26,0.04);">¿Trabajaste conmigo? Dejá tu reseña</a>
     </div>
     <div class="reveal" style="margin-top: 34px; padding: 4px 0 60px; display: flex; flex-direction: column; gap: 20px;">
       <div class="testi-row">
@@ -352,6 +353,7 @@ class Component extends DCLogic {
     return {
       nombre, email, waDisplay,
       waLink: "https://wa.me/" + tel + "?text=" + encodeURIComponent("Hola! Vi tu portfolio y quería consultarte por un proyecto."),
+      reviewWaLink: "https://wa.me/" + tel + "?text=" + encodeURIComponent("Hola! Quiero dejarte una reseña sobre el trabajo que hiciste para mi negocio."),
       mailLink: "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(email) + "&su=" + encodeURIComponent("Consulta desde el portfolio"),
       showBanner: S.consent === null && S.modal === null,
       modalOpen: S.modal !== null,
@@ -382,7 +384,10 @@ class Component extends DCLogic {
       testimonios: [
         { nombre: "Valentín", negocio: "QCortesano", texto: "Antes perdía horas del día contestando mensajes para coordinar turnos. Ahora los clientes eligen barbero y horario solos desde el celular, y yo me enfoco en cortar. Cambió totalmente la organización del local." },
         { nombre: "Diego", negocio: "Tossi Barbería", texto: "Lo que más valoro es el panel para gestionar la agenda entre Santiago y yo sin pisarnos los turnos. Los precios quedaron clarísimos para el cliente y bajaron un montón las consultas por WhatsApp." },
-        { nombre: "Daniela", negocio: "Illios", texto: "Necesitaba un catálogo prolijo para mostrar los modelos de botas sin depender de subir todo a Instagram. Luciano armó algo simple que puedo actualizar yo misma cada temporada. Muy conforme con el resultado." }
+        { nombre: "Daniela", negocio: "Illios", texto: "Necesitaba un catálogo prolijo para mostrar los modelos de botas sin depender de subir todo a Instagram. Luciano armó algo simple que puedo actualizar yo misma cada temporada. Muy conforme con el resultado." },
+        { nombre: "Sebastián", negocio: "Onze", texto: "Somos varios los que organizamos los partidos del grupo y siempre terminaba en quilombo de mensajes para armar los equipos. Con la plataforma cada uno carga su posición y zona, y arrancar un picado nuevo es cuestión de minutos." },
+        { nombre: "Bautista", negocio: "Mate", texto: "La uso todos los días para el cronograma de la facu. Tener las materias, los apuntes y el tutor con IA en un solo lugar me cambió la forma de organizarme para los parciales." },
+        { nombre: "Mateo", negocio: "Orbe", texto: "Quería vender los relojes sin depender solo de Instagram y Mercado Libre. La tienda quedó con las fichas de producto bien detalladas y las cuotas sin interés ayudaron un montón a cerrar ventas directo desde la web." }
       ]
     };
   }
